@@ -1,0 +1,15 @@
+c:\users\usuario\documents\visual studio 2010\Projects\final\final\Bin\Debug\ApplicationIcon.png
+c:\users\usuario\documents\visual studio 2010\Projects\final\final\Bin\Debug\Background.png
+c:\users\usuario\documents\visual studio 2010\Projects\final\final\Bin\Debug\final.dll
+c:\users\usuario\documents\visual studio 2010\Projects\final\final\Bin\Debug\final.pdb
+c:\users\usuario\documents\visual studio 2010\Projects\final\final\Bin\Debug\AppManifest.xaml
+c:\users\usuario\documents\visual studio 2010\Projects\final\final\Bin\Debug\final.xap
+c:\users\usuario\documents\visual studio 2010\Projects\final\final\obj\Debug\App.g.i.cs
+c:\users\usuario\documents\visual studio 2010\Projects\final\final\obj\Debug\MainPage.g.i.cs
+c:\users\usuario\documents\visual studio 2010\Projects\final\final\obj\Debug\final.g.resources
+c:\users\usuario\documents\visual studio 2010\Projects\final\final\obj\Debug\final.dll
+c:\users\usuario\documents\visual studio 2010\Projects\final\final\obj\Debug\final.pdb
+c:\users\usuario\documents\visual studio 2010\Projects\final\final\obj\Debug\XapCacheFile.xml
+C:\Users\Usuario\Documents\Visual Studio 2010\Projects\final\final\Bin\Debug\Newtonsoft.Json.dll
+C:\Users\Usuario\Documents\Visual Studio 2010\Projects\final\final\Bin\Debug\Newtonsoft.Json.xml
+C:\Users\Usuario\Documents\Visual Studio 2010\Projects\final\final\obj\Debug\final.csprojResolveAssemblyReference.cache
