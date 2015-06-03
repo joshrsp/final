@@ -20,7 +20,7 @@ namespace final
     public partial class MainPage : PhoneApplicationPage
     {
         ShellTile appTitle = ShellTile.ActiveTiles.First();
-        int i = 0, valorCategoria = 0, valorSubcategoria=0,siguiente=0,preguntas=0,branch=0;
+        int i = 0, valorCategoria = 0, valorSubcategoria=0,siguiente=0,preguntas=0,branch=0,numerovalidado=0;
         StackPanel Panel;
         Button btnClick, btnClick2, btnClick3;
         ListBox list,list2,list3;
@@ -462,6 +462,7 @@ namespace final
             {
                  respuesta.Add(txtbox.Text.Trim());
                 txtbox.Text = "";
+                numerovalidado = 1;
             }
             
             
@@ -473,7 +474,8 @@ namespace final
             }
            
             Contenido root4 = JsonConvert.DeserializeObject<Contenido>(root3[siguiente].content);
-            string aaaaa = "";
+            string aaaaa = "",bbb="";
+           
             for (branch=0; branch < root4.Decisions.Count;branch++ )
             {
                 
@@ -481,14 +483,53 @@ namespace final
                 {
                     
                     resultadoB = resultadoB + root4.Decisions[branch].branch[j].value;
+                    bbb = root4.Decisions[branch].branch[j].comparison_type; 
                     
                 }
-               
+                
                 if(resultadoA.Equals(resultadoB))
                 {
                     siguienteStep = root4.Decisions[branch].go_to_step;
                     branch = 999;
                     aaaaa = resultadoB;
+                }
+                if (numerovalidado == 1 && bbb.Equals("<"))
+                {
+                    
+                    if (Convert.ToInt32(resultadoA) < Convert.ToInt32(resultadoB))
+                    {
+                        siguienteStep = "7";
+                        branch = 999;
+                        aaaaa = resultadoB;
+                    }
+                 else {
+                        if (Convert.ToInt32(resultadoA)> Convert.ToInt32(resultadoB))
+                        {
+                            siguienteStep = root4.Decisions[branch].go_to_step;
+                            branch = 999;
+                            aaaaa = resultadoB;
+                        }
+                    }
+                }
+                else {
+                    if (numerovalidado == 1 && bbb.Equals(">"))
+                    {
+                        if (Convert.ToInt32(resultadoA) < Convert.ToInt32(resultadoB))
+                        {
+                            siguienteStep = "7";
+                            branch = 999;
+                            aaaaa = resultadoB;
+                        }
+                        else {
+                            if (Convert.ToInt32(resultadoA) > Convert.ToInt32(resultadoB))
+                             {
+                                siguienteStep = root4.Decisions[branch].go_to_step;
+                                branch = 999;
+                                aaaaa = resultadoB;
+                            }
+                        }
+
+                    }
                 }
                 resultadoB="";
             }
@@ -522,10 +563,12 @@ namespace final
                 btnClick3.Click += new RoutedEventHandler(llamar);*/
                 traerJsontodos();
                 txtbox.Text="";
+                numerovalidado = 0;
                 //preguntas
             }
             txtbox.Text="";
             branch = 0;
+            numerovalidado = 0;
            // Panel.Children.Remove(list3);
            // MessageBox.Show("Si entro "+siguienteStep+" "+preguntas);
             
